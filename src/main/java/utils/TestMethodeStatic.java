@@ -10,6 +10,6 @@ public class TestMethodeStatic {
         int a = 10;
         int b = 42;
 
-        System.out.println(Integer.max(a, b));
+        System.out.println("Le nombre maximum entre " + a + " et " + b + " est : " + Integer.max(a, b));
     }
 }
