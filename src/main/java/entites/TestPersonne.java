@@ -6,5 +6,8 @@ public class TestPersonne {
         Personne per2 = new Personne("Bistro", "Alonzo");
 
         per2.setAdr(new AdressePostale(34, "Phillipe", 72854, "Pointaigue"));
+
+        per1.afficher();
+        per2.afficher();
     }
 }
