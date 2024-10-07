@@ -18,11 +18,11 @@ public class TestOperation {
 
         for (Operation value : tableOperation){
             if (value.getType().equals("DEBIT")){
-                totalOperation -= value.ammount;
+                totalOperation -= value.getAmmount();
             } else {
-                totalOperation += value.ammount;
+                totalOperation += value.getAmmount();
             }
-            System.out.println("Date : " + value.date + " | " + value.getType() + " | Valeur : " + value.ammount + "€");
+            System.out.println("Date : " + value.getDate() + " | " + value.getType() + " | Valeur : " + value.getAmmount() + "€");
         }
 
         System.out.println("Total des opération : " + totalOperation + '€');
