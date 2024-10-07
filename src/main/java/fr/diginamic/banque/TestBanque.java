@@ -14,7 +14,7 @@ public class TestBanque {
         compteArray.add(new CompteTaux(2, 2948.23, 2.3));
 
 //        System.out.println(unCompte);
-        for (Compte val : compteArray){
+        for (Compte val : compteArray) {
             System.out.println(val);
             System.out.println("----------------------------------------");
         }
