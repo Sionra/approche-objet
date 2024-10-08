@@ -42,8 +42,22 @@ public class Menu {
     }
 
     public static void pStatus(Personnage p1) {
-        System.out.println("Pv : " + Color.ANSI_GREEN + p1.getPv() + '/' + p1.getPvmax() + Color.ANSI_RESET);
+        pPv(p1);
         System.out.println("Score : " + Color.ANSI_CYAN + p1.getScore() + Color.ANSI_RESET);
+    }
+
+    public static void pPv(Personnage p1) {
+        double pvPercent = Math.floor((float) p1.getPv() / p1.getPvmax() * 100);
+        int pvsec = (int)(pvPercent / 10);
+        System.out.print("Pv : " + Color.ANSI_GREEN + p1.getPv() + '/' + p1.getPvmax() + Color.ANSI_RESET + " [ ");
+        for (int i = 0; i < 10; i++){
+            if (i < pvsec){
+                System.out.print(Color.ANSI_GREEN + "■" + Color.ANSI_RESET);
+            } else {
+                System.out.print(Color.ANSI_RED + "■" + Color.ANSI_RESET);
+            }
+        }
+        System.out.print(" ]\n");
     }
 
     public static boolean combat(Personnage p1) {
@@ -77,7 +91,7 @@ public class Menu {
                 System.out.println(Color.ANSI_YELLOW + "Rien ne ce passe vos force sont egals" + Color.ANSI_RESET);
             }
             System.out.println("--------------------");
-            System.out.println("Pv joueur : " + Color.ANSI_GREEN + p1.getPv() + '/' + p1.getPvmax() + Color.ANSI_RESET);
+            pPv(p1);
             System.out.println("Pv " + monstre.getNom() + " : " + Color.ANSI_GREEN + monstre.getPv() + '/' + monstre.getPvMax() + Color.ANSI_RESET);
             System.out.println(Color.ANSI_GRAY + "Appuyer sur Entree pour continuer..." + Color.ANSI_RESET);
             input.nextLine();
@@ -98,7 +112,7 @@ public class Menu {
                     p1.addScore(5);
                     break;
             }
-            System.out.println("Score actuelle : " + Color.ANSI_CYAN + p1.getScore() + Color.ANSI_RESET);
+            System.out.println("Score actuel : " + Color.ANSI_CYAN + p1.getScore() + Color.ANSI_RESET);
             return true;
         } else {
             //Joueur Perd
