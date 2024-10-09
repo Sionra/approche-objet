@@ -22,7 +22,7 @@ public class TestPays {
         ));
 
         for (Pays value : hPays) {
-            if (value.getPib() > plusGrandPIB) {
+            if (value.getPib()/value.getNbhabitant() > plusGrandPIB) {
                 plusGrandPIB = value.getPib();
                 paysGrandPIB = value;
             }
