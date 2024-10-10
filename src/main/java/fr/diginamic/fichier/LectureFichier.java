@@ -15,18 +15,20 @@ public class LectureFichier {
         ArrayList<String> outputVille = new ArrayList<>();
 
         List<String> contenu = Files.readAllLines(path);
-        for (String value : contenu){
+        for (String value : contenu) {
             //System.out.println(value);
             String[] ligneActuelle = value.split(";");
-            if (!ligneActuelle[0].equals("Code région")){
-                listVille.add(new Ville(ligneActuelle[6], ligneActuelle[1], ligneActuelle[2], Integer.parseInt(ligneActuelle[9].replaceAll("\\s+",""))));
+            if (!ligneActuelle[0].equals("Code région")) {
+                listVille.add(new Ville(ligneActuelle[6], ligneActuelle[1], ligneActuelle[2], Integer.parseInt(ligneActuelle[9].replaceAll("\\s+", ""))));
             }
         }
         System.out.println(listVille.size());
         Collections.sort(listVille);
         outputVille.add("Nom de la commune;Nom de la région;Code département;Population totale;");
-        for (int i = 0; i < 25000; i++) {
-            outputVille.add(listVille.get(i).getNom()+";"+listVille.get(i).getNomRegion()+";"+listVille.get(i).getCodeDepartement()+";"+listVille.get(i).getPopTotal());
+        for (int i = 0; i < listVille.size(); i++) {
+            if (listVille.get(i).getPopTotal() >= 25000) {
+                outputVille.add(listVille.get(i).getNom() + ";" + listVille.get(i).getNomRegion() + ";" + listVille.get(i).getCodeDepartement() + ";" + listVille.get(i).getPopTotal());
+            }
         }
         Path pathOut = Paths.get("src", "main", "java", "fr", "diginamic", "fichier", "result.csv");
         Files.write(pathOut, outputVille);
