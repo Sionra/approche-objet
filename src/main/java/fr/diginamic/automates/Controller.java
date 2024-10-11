@@ -24,6 +24,7 @@ public class Controller {
         menu();
         while (this.running) {
             nextStep();
+            System.out.println("Appuyer sur entrée pour continuer la simulation");
             new Scanner(System.in).nextLine();
         }
     }
