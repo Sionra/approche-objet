@@ -41,4 +41,13 @@ public class Ville implements Comparable<Ville>{
             return -1;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Ville villeObj)){
+            return false;
+        } else {
+            return (this.nom.equals(villeObj.getNom()) && this.nbHabitant == villeObj.getNbHabitant());
+        }
+    }
 }
