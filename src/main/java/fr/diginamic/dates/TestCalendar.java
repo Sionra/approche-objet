@@ -13,6 +13,7 @@ public class TestCalendar {
         SimpleDateFormat dateFr = new SimpleDateFormat("yyyy/MMMM/EEEE HH:mm:ss", Locale.FRENCH);
         SimpleDateFormat dateCH = new SimpleDateFormat("yyyy/MMMM/EEEE HH:mm:ss", Locale.CHINA);
         SimpleDateFormat dateGR = new SimpleDateFormat("yyyy/MMMM/EEEE HH:mm:ss", Locale.GERMAN);
+        SimpleDateFormat dateRU = new SimpleDateFormat("yyyy/MMMM/EEEE HH:mm:ss", Locale.forLanguageTag("ru"));
 
         date.set(2016, Calendar.MAY, 19, 23, 59, 30);
 
@@ -21,5 +22,6 @@ public class TestCalendar {
         System.out.println(dateFr.format(dateDuJour.getTime()));
         System.out.println(dateCH.format(dateDuJour.getTime()));
         System.out.println(dateGR.format(dateDuJour.getTime()));
+        System.out.println(dateRU.format(dateDuJour.getTime()));
     }
 }
